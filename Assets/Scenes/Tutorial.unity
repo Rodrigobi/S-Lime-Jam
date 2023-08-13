@@ -14844,7 +14844,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830421344}
-  m_BodyType: 0
+  m_BodyType: 2
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -14869,6 +14869,7 @@ GameObject:
   - component: {fileID: 1870292217}
   - component: {fileID: 1870292216}
   - component: {fileID: 1870292215}
+  - component: {fileID: 1870292218}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -15206,6 +15207,23 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1870292218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870292213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b701a4fca4e1849884c9d7f851fcc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridTransform: {fileID: 1870292214}
+  leverTransform: {fileID: 0}
+  moveSpeed: 2
+  minYPosition: 0
+  maxYPosition: 5
 --- !u!1 &1956751334
 GameObject:
   m_ObjectHideFlags: 0
