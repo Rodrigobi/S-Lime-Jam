@@ -2,30 +2,41 @@ using UnityEngine;
 
 public class GridMovement : MonoBehaviour
 {
-    public Transform gridTransform; // Reference to the grid's Transform component
-    public Transform leverTransform; // Reference to the lever's Transform component
     public float moveSpeed = 2f; // Speed of grid movement
     public float minYPosition = 0f; // Minimum Y position of the grid
     public float maxYPosition = 5f; // Maximum Y position of the grid
 
-    private bool isLeverActivated = false; // Track the lever's state
+    private bool isActivated = false; // Track whether the grid can move
 
     private void Update()
     {
-        // Check for lever activation input
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Move the grid based on the activation state
+        if (isActivated)
         {
-            ToggleLever();
+            float targetYPosition = maxYPosition;
+            float newYPosition = Mathf.MoveTowards(transform.position.y, targetYPosition, moveSpeed * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, newYPosition, transform.position.z);
         }
-
-        // Move the grid based on the lever's state
-        float targetYPosition = isLeverActivated ? maxYPosition : minYPosition;
-        float newYPosition = Mathf.MoveTowards(gridTransform.position.y, targetYPosition, moveSpeed * Time.deltaTime);
-        gridTransform.position = new Vector3(gridTransform.position.x, newYPosition, gridTransform.position.z);
+        else
+        {
+            float targetYPosition = minYPosition;
+            float newYPosition = Mathf.MoveTowards(transform.position.y, targetYPosition, moveSpeed * Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, newYPosition, transform.position.z);
+        }
     }
 
-    private void ToggleLever()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        isLeverActivated = !isLeverActivated;
+        if (other.CompareTag("ActivatorObject")) // Change "ActivatorObject" to the appropriate tag
+        {
+            ToggleActivation();
+        }
+    }
+
+    public void ToggleActivation()
+    {
+        isActivated = !isActivated;
+
+        // TODO: You can also add more behavior here, like playing animations or sounds.
     }
 }

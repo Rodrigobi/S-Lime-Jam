@@ -8,16 +8,17 @@ public class HealthPickup : MonoBehaviour
     {
         if (other.CompareTag("Player")) // Assuming the player's tag is "Player"
         {
-            // Check if the player can pick up the health (based on cooldown)
+            // Check if the player can pick up the health
             SlimeHealth slimeHealth = other.GetComponent<SlimeHealth>();
-            if (slimeHealth != null && slimeHealth.CanPickup())
+            if (slimeHealth != null)
             {
+                // Increase the player's max health
                 slimeHealth.IncreaseMaxHealth(maxHealthIncrease);
 
-                // Start the cooldown for picking up health
-                slimeHealth.StartCooldown();
+                // Heal the player by 10 points (if not exceeding max health)
+                slimeHealth.Heal(10);
 
-                // Destroy the pickup object
+                // Destroy the pickup object only when the player collides
                 Destroy(gameObject);
             }
         }
