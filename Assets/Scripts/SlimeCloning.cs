@@ -9,9 +9,12 @@ public class SlimeCloning : MonoBehaviour
     private Rigidbody2D rb;
     private int currentSlimeCount = 1; // Start with 1 slime (the original)
 
+    public CameraFollow cameraFollow; // Reference to the CameraFollow script
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        cameraFollow = Camera.main.GetComponent<CameraFollow>(); // Get the CameraFollow script from the main camera
     }
 
     private void Update()
@@ -38,5 +41,11 @@ public class SlimeCloning : MonoBehaviour
         newRb.AddForce(cloneDirection * cloneForce, ForceMode2D.Impulse);
 
         currentSlimeCount++;
+
+        // Get the transform of the new slime
+        Transform newSlimeTransform = newSlime.transform;
+
+        // Call the UpdateSlimeReferences function on the CameraFollow script to update the camera target
+        cameraFollow.UpdateSlimeReferences(newSlimeTransform);
     }
 }

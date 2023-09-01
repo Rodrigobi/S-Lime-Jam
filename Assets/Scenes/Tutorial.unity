@@ -1715,6 +1715,7 @@ MonoBehaviour:
   slimePrefab: {fileID: 8844413953825945318, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
   maxSlimeCount: 2
   cloneForce: 20
+  cameraFollow: {fileID: 519420033}
 --- !u!1 &431121481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,7 +3207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c272bf6e7f1137246a3ab3bc0c6d5ebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 427683435}
+  slimePrefab: {fileID: 427683435}
   smoothSpeed: 2.5
   offset: {x: 0, y: 0, z: 0}
 --- !u!1 &529115642
@@ -26848,7 +26849,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1277635941
 Transform:
   m_ObjectHideFlags: 0
@@ -34115,11 +34116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8844413953825945315, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.422
+      value: -3.424
       objectReference: {fileID: 0}
     - target: {fileID: 8844413953825945315, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.594
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 8844413953825945315, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
       propertyPath: m_LocalPosition.z
@@ -34152,6 +34153,14 @@ PrefabInstance:
     - target: {fileID: 8844413953825945324, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
       propertyPath: gravityChangeForce
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844413953825945325, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
+      propertyPath: m_Size.y
+      value: 0.061362
+      objectReference: {fileID: 0}
+    - target: {fileID: 8844413953825945325, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.0043189973
       objectReference: {fileID: 0}
     - target: {fileID: 9157330842069279188, guid: 563357e4144877a4da11edb6c7f6d866, type: 3}
       propertyPath: m_Controller
